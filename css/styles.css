@@ -218,14 +218,116 @@ a:focus, button:focus, [role="button"]:focus, input:focus, select:focus, textare
 }
 
 /* =================================================================
- 4. HERO SECTION
+ 4. HERO SECTION & IMAGE OPTIMIZATION
  ================================================================= */
+
+/* WebP Image Optimization */
+img {
+ max-width: 100%;
+ height: auto;
+}
+
+/* Lazy loading enhancement */
+img[loading="lazy"] {
+ opacity: 0;
+ transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+ opacity: 1;
+}
+
+/* Partner logos optimization */
+.partner-logo {
+ width: auto;
+ max-height: 80px;
+ object-fit: contain;
+}
+
+/* Team photo optimization */
+.team-headshot {
+ object-fit: cover;
+ border-radius: 50%;
+}
 
 .hero {
  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-maroon) 100%);
  color: var(--white);
  padding: 80px 0;
  text-align: center;
+ position: relative;
+ overflow: hidden;
+}
+
+/* Page-specific hero backgrounds with WebP optimization */
+.hero.homepage-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Homepage Images and Graphics/Homepage Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.action-center-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Civics and Advocacy/Core Civics Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.news-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/News Images and Graphics - Copy (4)/Newspaper Graphix - Copy (2024_12_19 23_46_43 UTC)_5460_3916.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.contact-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Contact/Contact Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.donate-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Donate Images and Graphics/Donation Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.criminal-legal-reform-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Criminal Legal System images/Criminal Legal Reform Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.drug-policy-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Drug Policy and OD Prevention/Drug Policy Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.prison-oversight-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Prison Oversight/johnnyfab68_A_high-resolution_photorealistic_image_of_sunligh_8a6cac5c-4345-4055-afa3-d0ebd9897eaa_0_1536_768.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.arts-in-prison-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Arts In Prison/Arts In Prison Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.hero.civic-engagement-hero {
+ background: linear-gradient(rgba(0, 0, 128, 0.7), rgba(128, 0, 0, 0.7)), url('10 Assets/Civics and Advocacy/Core Civics Hero Image.webp');
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
 }
 
 .hero-content {
@@ -1394,6 +1496,20 @@ a:focus, button:focus, [role="button"]:focus, input:focus, select:focus, textare
 @media (max-width: 768px) {
  body {
  padding-top: 80px;
+ }
+ 
+ /* Optimize hero backgrounds for mobile */
+ .hero.homepage-hero,
+ .hero.action-center-hero,
+ .hero.news-hero,
+ .hero.contact-hero,
+ .hero.donate-hero,
+ .hero.criminal-legal-reform-hero,
+ .hero.drug-policy-hero,
+ .hero.prison-oversight-hero,
+ .hero.arts-in-prison-hero,
+ .hero.civic-engagement-hero {
+ background-attachment: scroll; /* Remove fixed attachment on mobile for better performance */
  }
 
  .header-container {

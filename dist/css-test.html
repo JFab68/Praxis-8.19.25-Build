@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Test - Praxis Initiative</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Inline test styles to verify if external CSS is working */
+        .test-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #000080 0%, #800000 100%);
+            color: white;
+            text-align: center;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .test-message {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .css-test {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .test-result {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .test-result.pass {
+            color: #4CAF50;
+        }
+        .test-result.fail {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1 class="test-message">CSS Test Page</h1>
+        <p>If you can see this styled content, the CSS is loading correctly.</p>
+        
+        <div class="css-test">
+            <h2>External CSS Test</h2>
+            <p>This should have navy background if external CSS is working.</p>
+        </div>
+        
+        <div class="hero">
+            <div class="container">
+                <h2>Hero Section Test</h2>
+                <p>This should use hero styles from external CSS.</p>
+                <a href="#" class="btn btn-primary">Test Button</a>
+            </div>
+        </div>
+        <p id="css-result" class="test-result"></p>
+    </div>
+    
+    <!-- Header -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="header">
+  <div class="header-container">
+    <div class="header-logo">
+      <a href="1 Homepage.html" class="logo-link">
+        <img src="10 Assets/Praxis Logos/Praxis Logo New Italic Tagline Navy Transparent BG 1078 x 218_1078_218.webp" alt="Praxis Initiative Logo" class="logo-img" loading="eager">
+      </a>
+    </div>
+    <nav class="header-nav">
+      <div class="nav-links-row">
+        <a href="1 Homepage.html">Home</a>
+        <a href="2 Issues.html">Issues</a>
+        <a href="3 About.html">About</a>
+        <div class="dropdown">
+          <a href="4 Programs.html" class="dropdown-toggle">Programs &#9662;</a>
+          <div class="dropdown-menu">
+            <a href="4A prison_oversight_page.html">Prison Oversight</a>
+            <a href="4B criminal_legal_reform_page.html">Criminal Legal Reform</a>
+            <a href="4C drug_policy_page.html">Drug Policy</a>
+            <a href="4D civic_engagement_page.html">Civic Engagement</a>
+            <a href="4E arts_in_prison_page.html">Arts in Prison</a>
+          </div>
+        </div>
+        <a href="5 Action Center.html">Action Center</a>
+        <a href="6 Partners.html">Partners</a>
+        <a href="7 News.html">News</a>
+        <a href="8 Contact.html">Contact</a>
+        <a href="9 Donate.html">Donate</a>
+      </div>
+    </nav>
+    <div class="header-cta">
+      <a href="9 Donate.html" class="donate-button-header">
+        <i class="fas fa-heart"></i>
+        Donate
+      </a>
+    </div>
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </div>
+</header>
+<!-- End Header -->
+
+    
+    <main style="padding-top: 120px;">
+        <section class="section">
+            <div class="container">
+                <h2>Main Content Test</h2>
+                <p>This content should be properly spaced and styled.</p>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Test if CSS variables are working
+        const testDiv = document.createElement('div');
+        testDiv.style.background = 'var(--primary-navy)';
+        document.body.appendChild(testDiv);
+        
+        const computedStyle = getComputedStyle(testDiv);
+        const bgColor = computedStyle.backgroundColor;
+        
+        console.log('CSS Variable Test - Primary Navy Color:', bgColor);
+        
+        const resultEl = document.getElementById('css-result');
+
+        if (bgColor === 'rgb(0, 0, 128)' || bgColor === '#000080') {
+            console.log('✅ CSS is loading correctly!');
+            resultEl.textContent = '✅ CSS WORKING!';
+            resultEl.classList.add('pass');
+        } else {
+            console.log('❌ CSS not loading properly');
+            resultEl.textContent = '❌ CSS NOT WORKING!';
+            resultEl.classList.add('fail');
+        }
+        
+        document.body.removeChild(testDiv);
+    </script>
+</body>
+</html>

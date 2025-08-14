@@ -21,7 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/inline-fixes.css">
     <script src="https://js.givebutter.com/elements/latest.js"></script>
     <script type="application/ld+json">
         {
@@ -51,7 +50,7 @@
       <div class="header-container">
         <div class="header-logo">
           <a href="1 Homepage.html" class="logo-link">
-            <img src="10 Assets/Praxis Logos/Praxis Logo New Italic Tagline Navy Transparent BG 1078 x 218.png" alt="Praxis Initiative Logo" class="logo-img" loading="eager">
+            <img src="10 Assets/Praxis Logos/Praxis Logo New Italic Tagline Navy Transparent BG 1078 x 218_1078_218.webp" alt="Praxis Initiative Logo" class="logo-img" loading="eager">
           </a>
         </div>
         <nav class="header-nav">
@@ -92,7 +91,7 @@
     <!-- End Header -->
 
     <main id="main-content" role="main">
-        <section class="hero" id="home">
+        <section class="hero homepage-hero" id="home">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
@@ -197,31 +196,31 @@
                     <div class="section-subtitle">The people powering our mission for change. Driven by experience, united by purpose.</div>
                     <div class="team-grid">
                         <div class="team-member">
-                            <div class="team-member-image"><img src="10 Assets/Staff/John Fabricius.png" alt="John Fabricius headshot" class="team-headshot" loading="lazy"></div>
+                            <div class="team-member-image"><img src="10 Assets/Staff/John Fabricius_500_500.webp" alt="John Fabricius headshot" class="team-headshot" loading="lazy"></div>
                             <h3>John Fabricius</h3>
                             <div class="role">Executive Director</div>
                             <div class="bio">John endured fifteen years of incarceration spanning nine distinct prison complexes, acquiring deep institutional knowledge of security operations, administrative processes, and inmate services. He channels this lived expertise into visionary reform strategies, driving legislative advocacy efforts and empowering community-driven oversight initiatives aimed at transforming Arizona's criminal legal system from the inside out.</div>
                         </div>
                         <div class="team-member">
-                            <div class="team-member-image"><img src="10 Assets/Staff/J Alexandria Hunt Garcia..png" alt="J Alexandria Hunt Garcia headshot" class="team-headshot" loading="lazy"></div>
+                            <div class="team-member-image"><img src="10 Assets/Staff/J Alexandria Hunt Garcia._500_500.webp" alt="J Alexandria Hunt Garcia headshot" class="team-headshot" loading="lazy"></div>
                             <h3>J</h3>
                             <div class="role">Drug Policy & Substance Use Advocate</div>
                             <div class="bio">J served five years incarcerated over three convictions, gaining firsthand comprehension of carceral policies, systemic barriers, and rehabilitative challenges. Recognized for leadership in drug policy and substance use advocacy, she leverages her lived experience to shape Praxis Initiative's programs, inform policy development, and galvanize stakeholders toward humane, effective reforms within Arizona's criminal legal landscape.</div>
                         </div>
                         <div class="team-member">
-                            <div class="team-member-image"><img src="10 Assets/Staff/Jessica Johnson.png" alt="Jessica Johnson headshot" class="team-headshot" loading="lazy"></div>
+                            <div class="team-member-image"><img src="10 Assets/Staff/Jessica Johnson_500_500.webp" alt="Jessica Johnson headshot" class="team-headshot" loading="lazy"></div>
                             <h3>Jessica</h3>
                             <div class="role">Legislative Advocate</div>
                             <div class="bio">Jessica spent eight years at the Perryville Complex, navigating all custody levels as both inmate and advocate, which forged her profound understanding of institutional shortcomings and reform opportunities. She transforms personal adversity into strategic advocacy, spearheading legislative initiatives and coalition-building efforts designed to improve conditions, expand oversight, and ensure accountability across Arizona's correctional institutions.</div>
                         </div>
                         <div class="team-member">
-                            <div class="team-member-image"><img src="10 Assets/Staff/Sherri Scates.png" alt="Sherri Scates headshot" class="team-headshot" loading="lazy"></div>
+                            <div class="team-member-image"><img src="10 Assets/Staff/Sherri Scates_508_509.webp" alt="Sherri Scates headshot" class="team-headshot" loading="lazy"></div>
                             <h3>Sherri</h3>
                             <div class="role">Family Member Advocate</div>
                             <div class="bio">Sherri witnessed both her sons' incarcerations—one serving a thirty-year sentence and the other tragically lost to suicide after enduring deplorable conditions—which fueled her unwavering commitment to prison oversight. Drawing on personal tragedy, she courageously champions independent monitoring, legislative reforms, and community engagement to demand transparency, justice, and humane treatment for individuals within Arizona's prison system.</div>
                         </div>
                         <div class="team-member">
-                            <div class="team-member-image"><img src="10 Assets/Staff/Mindi Kraicinski.png" alt="Mindi Kraicinski headshot" class="team-headshot" loading="lazy"></div>
+                            <div class="team-member-image"><img src="10 Assets/Staff/Mindi Kraicinski_500_500.webp" alt="Mindi Kraicinski headshot" class="team-headshot" loading="lazy"></div>
                             <h3>Mindi Krasinski</h3>
                             <div class="role">Institutional Expert</div>
                             <div class="bio">Mindi dedicated twenty-six years to ADC service, rising from administrative typist to Correctional Officer III working primarily at the Eyman, Florence and Globe complexes. Her extensive operational expertise spans security protocols, case management, and special management units. She now applies this deep institutional insight to guide Praxis Initiative's accountability measures, training programs, and policy recommendations.</div>
@@ -528,7 +527,7 @@
 
                     <div class="faq-accordion">
                         <div class="faq-item fade-in" data-faq="1">
-                            <div class="faq-question" data-faq="1">
+                            <div class="faq-question" onclick="toggleFAQ(1)">
                                 <div class="faq-question-content">
                                     <span class="faq-icon">❓</span>
                                     <span class="faq-text">What is Praxis Initiative?</span>
@@ -559,7 +558,7 @@
                         </div>
 
                         <div class="faq-item fade-in" data-faq="2">
-                            <div class="faq-question" data-faq="2">
+                            <div class="faq-question" onclick="toggleFAQ(2)">
                                 <div class="faq-question-content">
                                     <span class="faq-icon">🤝</span>
                                     <span class="faq-text">How can I get involved?</span>
@@ -593,7 +592,7 @@
                         </div>
 
                         <div class="faq-item fade-in" data-faq="3">
-                            <div class="faq-question" data-faq="3">
+                            <div class="faq-question" onclick="toggleFAQ(3)">
                                 <div class="faq-question-content">
                                     <span class="faq-icon">📋</span>
                                     <span class="faq-text">What programs does Praxis Initiative offer?</span>
@@ -635,7 +634,7 @@
                         </div>
 
                         <div class="faq-item fade-in" data-faq="4">
-                            <div class="faq-question" data-faq="4">
+                            <div class="faq-question" onclick="toggleFAQ(4)">
                                 <div class="faq-question-content">
                                     <span class="faq-icon">💰</span>
                                     <span class="faq-text">How are donations used?</span>
@@ -669,7 +668,7 @@
                         </div>
 
                         <div class="faq-item fade-in" data-faq="5">
-                            <div class="faq-question" data-faq="5">
+                            <div class="faq-question" onclick="toggleFAQ(5)">
                                 <div class="faq-question-content">
                                     <span class="faq-icon">📞</span>
                                     <span class="faq-text">How can I contact Praxis Initiative?</span>
