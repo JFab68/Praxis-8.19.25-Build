@@ -1,0 +1,242 @@
+// Modular Components - Main entry point
+// This file loads only the essential components needed for all pages
+
+// Import core functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize page-specific functionality based on current page
+    const path = window.location.pathname;
+    const filename = path.split('/').pop().toLowerCase();
+    
+    // Common functionality for all pages
+    initializeCommonFeatures();
+    
+    // Page-specific initialization
+    switch(filename) {
+        case '1 homepage.html':
+        case 'index.html':
+            initializeHomepage();
+            break;
+        case '2 issues.html':
+            initializeIssuesPage();
+            break;
+        case '3 about.html':
+            initializeAboutPage();
+            break;
+        case '4 programs.html':
+            initializeProgramsPage();
+            break;
+        case '5 action center.html':
+            initializeActionCenter();
+            break;
+        case '6 partners.html':
+            initializePartnersPage();
+            break;
+        case '7 news.html':
+            initializeNewsPage();
+            break;
+        case '8 contact.html':
+            initializeContactPage();
+            break;
+        case '9 donate.html':
+            initializeDonationPage();
+            break;
+        default:
+            // Default initialization for program sub-pages
+            if (filename.includes('prison_oversight') || 
+                filename.includes('criminal_legal_reform') ||
+                filename.includes('drug_policy') ||
+                filename.includes('civic_engagement') ||
+                filename.includes('arts_in_prison')) {
+                initializeProgramSubpage();
+            }
+    }
+});
+
+// Common features for all pages
+function initializeCommonFeatures() {
+    // Smooth scrolling for internal links
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // External link handling
+    const externalLinks = document.querySelectorAll('a[href^="http"]');
+    externalLinks.forEach(link => {
+        if (!link.hostname.includes(window.location.hostname)) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+
+    // Basic accessibility enhancements
+    enhanceAccessibility();
+}
+
+function enhanceAccessibility() {
+    // Add skip link focus handling
+    const skipLinks = document.querySelectorAll('.skip-link');
+    skipLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.setAttribute('tabindex', '-1');
+                target.focus();
+            }
+        });
+    });
+
+    // Improve button accessibility
+    const buttons = document.querySelectorAll('button:not([aria-label]):not([aria-labelledby])');
+    buttons.forEach(button => {
+        if (!button.textContent.trim() && !button.querySelector('img[alt]')) {
+            button.setAttribute('aria-label', 'Button');
+        }
+    });
+}
+
+// Page-specific initializers (lightweight versions)
+function initializeHomepage() {
+    // Hero section animations only
+    const heroElements = document.querySelectorAll('.hero-text > *');
+    heroElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            el.style.transition = 'all 0.6s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+}
+
+function initializeIssuesPage() {
+    // Basic card hover effects
+    const cards = document.querySelectorAll('.issue-card, .challenge-item');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+}
+
+function initializeAboutPage() {
+    // Team member card interactions
+    const teamCards = document.querySelectorAll('.team-member');
+    teamCards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('expanded');
+        });
+    });
+}
+
+function initializeProgramsPage() {
+    // Program card navigation
+    const programCards = document.querySelectorAll('.program-card');
+    programCards.forEach(card => {
+        const link = card.querySelector('a');
+        if (link) {
+            card.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'A') {
+                    window.location.href = link.href;
+                }
+            });
+            card.style.cursor = 'pointer';
+        }
+    });
+}
+
+function initializeActionCenter() {
+    // Action item interactions
+    const actionItems = document.querySelectorAll('.action-item');
+    actionItems.forEach(item => {
+        const button = item.querySelector('button, .btn');
+        if (button) {
+            button.addEventListener('click', () => {
+                // Track action engagement
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'action_clicked', {
+                        'action_type': button.textContent.trim()
+                    });
+                }
+            });
+        }
+    });
+}
+
+function initializePartnersPage() {
+    // Partner logo lazy loading and interactions
+    const partnerLogos = document.querySelectorAll('.partner-logo img');
+    partnerLogos.forEach(img => {
+        img.addEventListener('error', () => {
+            img.style.display = 'none';
+        });
+    });
+}
+
+function initializeNewsPage() {
+    // Basic article preview functionality
+    const articlePreviews = document.querySelectorAll('.article-preview');
+    articlePreviews.forEach(preview => {
+        const readMoreBtn = preview.querySelector('.read-more');
+        const excerpt = preview.querySelector('.excerpt');
+        
+        if (readMoreBtn && excerpt) {
+            readMoreBtn.addEventListener('click', () => {
+                excerpt.classList.toggle('expanded');
+                readMoreBtn.textContent = excerpt.classList.contains('expanded') ? 'Read Less' : 'Read More';
+            });
+        }
+    });
+}
+
+function initializeContactPage() {
+    // Contact form enhancements are handled in forms.js
+    // Add any contact-specific functionality here
+    const contactMethods = document.querySelectorAll('.contact-method');
+    contactMethods.forEach(method => {
+        method.addEventListener('click', () => {
+            const link = method.querySelector('a');
+            if (link) {
+                link.click();
+            }
+        });
+    });
+}
+
+function initializeDonationPage() {
+    // Donation tracking and analytics
+    const donateButtons = document.querySelectorAll('.donate-btn, .donation-amount');
+    donateButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'donation_started', {
+                    'amount': button.dataset.amount || 'custom'
+                });
+            }
+        });
+    });
+}
+
+function initializeProgramSubpage() {
+    // Common functionality for program sub-pages
+    const ctaButtons = document.querySelectorAll('.cta-button, .program-cta');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'program_cta_clicked', {
+                    'program': document.title
+                });
+            }
+        });
+    });
+}
