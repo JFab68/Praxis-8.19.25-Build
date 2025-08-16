@@ -227,6 +227,99 @@ img {
  height: auto;
 }
 
+/* Hero Image Styles */
+.hero-image {
+ flex: 1;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ max-width: 500px;
+}
+
+.hero-img {
+ width: 100%;
+ height: auto;
+ border-radius: 12px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ object-fit: cover;
+ max-height: 400px;
+}
+
+/* Content Images */
+.content-image {
+ margin: 30px 0;
+ text-align: center;
+}
+
+.content-img {
+ width: 100%;
+ max-width: 500px;
+ height: auto;
+ border-radius: 8px;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+ object-fit: cover;
+}
+
+/* Card Images */
+.card-img {
+ width: 100%;
+ height: 200px;
+ object-fit: cover;
+ border-radius: 8px;
+ margin-bottom: 15px;
+}
+
+/* Challenge Images */
+.challenge-img {
+ width: 100%;
+ height: 180px;
+ object-fit: cover;
+ border-radius: 8px;
+ margin-bottom: 10px;
+}
+
+.challenge-caption {
+ text-align: center;
+ font-weight: 600;
+ color: var(--dark-gray);
+ font-size: 0.9rem;
+}
+
+/* Connect Image */
+.connect-img {
+ width: 100%;
+ height: auto;
+ border-radius: 8px;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Why Praxis Image */
+.why-praxis-img {
+ width: 100%;
+ height: auto;
+ border-radius: 8px;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Change Card Images */
+.change-card-image {
+ width: 100%;
+ height: 200px;
+ overflow: hidden;
+ border-radius: 8px 8px 0 0;
+}
+
+.change-card-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.3s ease;
+}
+
+.change-card:hover .change-card-image img {
+ transform: scale(1.05);
+}
+
 /* Lazy loading enhancement */
 img[loading="lazy"] {
  opacity: 0;
@@ -332,9 +425,22 @@ img[loading="lazy"].loaded {
 
 .hero-content {
  display: flex;
- flex-direction: column;
+ flex-direction: row;
  align-items: center;
  gap: 40px;
+ flex-wrap: wrap;
+}
+
+/* Single column hero content for text-only sections */
+.hero-content.text-only {
+ flex-direction: column;
+ text-align: center;
+}
+
+/* Hero text container */
+.hero-text {
+ flex: 1;
+ min-width: 400px;
 }
 
 .hero-text h1 {
@@ -363,6 +469,8 @@ img[loading="lazy"].loaded {
  gap: 40px;
  flex-wrap: wrap;
  justify-content: center;
+ margin-top: 60px;
+ width: 100%;
 }
 
 .feature-item {
@@ -1337,9 +1445,14 @@ img[loading="lazy"].loaded {
 
 .hero-content-split {
  display: grid;
- grid-template-columns: 2fr 1fr;
+ grid-template-columns: 2fr 1fr 1fr;
  gap: 60px;
  align-items: center;
+}
+
+/* For pages with just text and quote */
+.hero-content-split.two-column {
+ grid-template-columns: 2fr 1fr;
 }
 
 .about-hero .hero-text h1 {
@@ -1479,8 +1592,22 @@ img[loading="lazy"].loaded {
  }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
  .hero-content-split {
+ grid-template-columns: 1fr 1fr;
+ gap: 40px;
+ }
+ 
+ .hero-content-split .hero-quote-prominent {
+ grid-column: 1 / -1;
+ max-width: 600px;
+ margin: 0 auto;
+ }
+}
+
+@media (max-width: 900px) {
+ .hero-content-split,
+ .hero-content-split.two-column {
  grid-template-columns: 1fr;
  gap: 40px;
  }
@@ -1496,6 +1623,26 @@ img[loading="lazy"].loaded {
 @media (max-width: 768px) {
  body {
  padding-top: 80px;
+ }
+ 
+ /* Hero content responsive */
+ .hero-content {
+ flex-direction: column;
+ text-align: center;
+ gap: 30px;
+ }
+ 
+ .hero-text {
+ min-width: auto;
+ }
+ 
+ .hero-image {
+ max-width: 100%;
+ order: -1; /* Move image above text on mobile */
+ }
+ 
+ .hero-img {
+ max-height: 250px;
  }
  
  /* Optimize hero backgrounds for mobile */
