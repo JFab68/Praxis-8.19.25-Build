@@ -1,5 +1,10 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(claude config set --global env.WORDPRESS_URL \"https://praxisinitiative.org\")",
+      "Bash(claude config set:*)",
+      "Bash(claude config set --global env.WORDPRESS_PASSWORD \"your-app-password\")"
+    ]
   }
 }
