@@ -16,14 +16,22 @@
       "mcp__puppeteer__puppeteer_evaluate",
       "mcp__puppeteer__puppeteer_screenshot",
       "WebSearch",
-      "WebFetch(domain:praxisinitiative.org)"
+      "WebFetch(domain:praxisinitiative.org)",
+      "mcp__filesystem__list_directory",
+      "Bash(npx htmlhint:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx stylelint:*)",
+      "mcp__filesystem__read_text_file",
+      "mcp__filesystem__edit_file",
+      "Bash(sed:*)",
+      "mcp__filesystem__read_multiple_files"
     ],
     "defaultMode": "acceptEdits"
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "sequential-thinking",
     "automattic-wordpress",
     "elementor-mcp"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
