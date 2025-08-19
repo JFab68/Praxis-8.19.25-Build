@@ -5,9 +5,15 @@
   "main": "index.js",
   "scripts": {
     "release": "standard-version",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "mcp-relay": "node start-mcp-relay.js",
+    "start-relay": "npm run mcp-relay"
   },
   "devDependencies": {
     "standard-version": "^9.5.0"
+  },
+  "dependencies": {
+    "@mcp-b/transports": "^1.0.3",
+    "ws": "^8.18.0"
   }
 }

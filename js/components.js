@@ -207,7 +207,7 @@ class ComponentLoader {
                 e.preventDefault();
                 const email = newsletterForm.querySelector('input[type="email"]').value;
                 if (email) {
-                    console.log('Newsletter signup:', email);
+                    // Newsletter signup processed
                     // Here you would typically send to your backend
                 }
             });
@@ -283,7 +283,7 @@ class ComponentLoader {
                         submitBtn.disabled = false;
                     }, 1500);
                     
-                    console.log('Contact form submitted:', { name, email, message });
+                    // Contact form submitted successfully
                 }
             });
         }
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="tel:"]').forEach(link => {
         link.addEventListener('click', (e) => {
             // Analytics tracking could go here
-            console.log('Phone number clicked:', link.href);
+            // Phone number clicked
         });
     });
 
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', (e) => {
             // Analytics tracking could go here
-            console.log('Email link clicked:', link.href);
+            // Email link clicked
         });
     });
 });
@@ -1384,7 +1384,7 @@ function initializeNewsletterPreferences() {
             
             // Simulate newsletter subscription
             showNotification('Successfully subscribed to newsletter!', 'success');
-            console.log('Newsletter subscription:', { email, frequency, interests });
+            // Newsletter subscription processed
         });
     }
 }
@@ -4053,8 +4053,8 @@ const artTherapyResources = [
     }
 ];
 
-// Volunteer Artist Opportunities Data
-const volunteerOpportunities = [
+// Volunteer Artist Opportunities Data (Arts Program)
+const artsVolunteerOpportunities = [
     {
         title: "Visual Arts Instructor",
         location: "Perryville Women's Prison",
@@ -4287,7 +4287,7 @@ function openVolunteerArtists() {
         </div>
         
         <div class="volunteer-opportunities-grid">
-            ${volunteerOpportunities.map(opportunity => `
+            ${artsVolunteerOpportunities.map(opportunity => `
                 <div class="volunteer-opportunity">
                     <div class="volunteer-title">${opportunity.title}</div>
                     <div class="volunteer-location">📍 ${opportunity.location}</div>
