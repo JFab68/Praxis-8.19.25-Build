@@ -19,5 +19,11 @@
       "WebFetch(domain:praxisinitiative.org)"
     ],
     "defaultMode": "acceptEdits"
-  }
+  },
+  "enabledMcpjsonServers": [
+    "sequential-thinking",
+    "automattic-wordpress",
+    "elementor-mcp"
+  ],
+  "enableAllProjectMcpServers": true
 }
