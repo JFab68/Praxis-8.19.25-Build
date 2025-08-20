@@ -1,2 +1,21 @@
-"node_modules/" 
-".DS_Store" 
+# Dependencies
+node_modules/
+
+# Build / output
+dist/
+build/
+.cache/
+.next/
+out/
+
+# Logs & reports
+*.log
+lighthouse-report.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.tmp
+
